@@ -1,0 +1,32 @@
+인텔리 제이
+- 설치할 때는 모두 체크해서 설치
+- 프린트 단축키는 sout
+- 코드실행은 shift f10
+- 셋팅 단축키는 shift alt s
+- 인텔리제이는 pox.xml 에서 디펜던시 추가해서 검색하면 바로 롬복같은 것 설치 가능.
+ : 빨간줄이 뜰 경우 ctrl shift o를 눌러서 설치해주어야함!
+- ctrl i = impl 할 수 있는 객체들 모두 override 가능
+- ctrl o = impl, object 까지 모두 override 가능
+- ctrl b = 코드에 올려놓으면 사용하고 있는 객체들 조회 가능
+- alt insert = generate 불러오기 (게터세터, 생성자, 해쉬태그 등등 생성)
+- 매개변수에 ctrl p = 어떤 자료형인지 조회 가능
+- ctrl shift i = 변수가 어떻게 구현되었는지 조회 가능
+- ctrl d = 라인 복제
+- ctrl y = 라인 삭제
+- ctrl 누른 상태에서 화살표 = 단어별로 이동
+- // or ctrl / or ctrl shift /  = 주석처리
+- ctrl alt l = 자동정렬
+- alt enter = 선언 초기화가 따로 필요할때 사용 가능
+- 자동 import 설정은 설정 들어가서 editor -> general -> auto import 들어가서 체크 두개 해줌
+- 플러그인에서 spring 검색, spring boot assistant, spring boot helper 다운
+
+버전은 2.6.11ver로 설정했다가 pom.xml에서 2.6.6ver로 바꿔주기!
+디벨로퍼 툴스에 스프링부트 devtools, lombok, 웹의 스프링 웹, 템플릿 엔지니스에 타임리프 체크
+메이븐이 되지 않는 경우 설정 > 빌드 > 빌드 툴즈 > 메이븐에서 메이븐 홈패스에 bundled (Maven 3)인지 꼭 확인!
+설정 > 컴파일러 > 빌드프로젝트~ 체크, 어드밴스드 셋팅에 알로우 오토~ 체크
+
+
+프로젝트 생성 후 본 폴더 밑으로
+domain, repostory, service, web.controller, web.dto를 만들어주는게 기본 세팅이다. 여기에 추가로 config, util을 더 만들어준다.
+
+resources 밑에 있는 application.propories는 application.yml로 바꿔준다. 두개의 차이점은 .으로 구분하느냐 들여쓰기로 구분하느냐 차이.

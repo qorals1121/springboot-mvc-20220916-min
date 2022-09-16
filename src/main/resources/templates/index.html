@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+    <style>
+    </style>
+</head>
+<body>
+  <h1>Hello Spring Boot</h1>
+  <h1 th:text="${nowDate}"></h1>
+  <h2>test</h2>
+
+  <table>
+      <thead>
+      <tr>
+        <th>이름</th>
+        <th>나이</th>
+        <th>연락처</th>
+        <th>주소</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td th:text="${name}"></td>
+        <td th:text="${age}"></td>
+        <td th:text="${phone}"></td>
+        <td th:text="${address}"></td>
+      </tr>
+      </tbody>
+
+  </table>
+
+</body>
+</html>
