@@ -1,13 +1,11 @@
 package com.boot.mvc20220916min.repository;
 
 import com.boot.mvc20220916min.domain.User;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-
 import java.util.ArrayList;
 import java.util.List;
 
-@Component("a")
+@Repository("a")
 public class UserRepositoryImpl implements UserRepository {
     private final List<User> userData;
 

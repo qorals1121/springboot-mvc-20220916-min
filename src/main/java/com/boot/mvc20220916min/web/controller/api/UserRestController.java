@@ -7,16 +7,18 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 // 예전에 자주 사용하던 방식. 요즘은 RequiredArgs~와 final을 사용한다
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
 @RequestMapping("/api/v1")
-@RequiredArgsConstructor
 public class UserRestController {
 
-    private final UserRepository userRepository;
+    @Autowired
+    @Qualifier("a")
+    private UserRepository userRepository;
 
     @GetMapping("/users/{userCode}")
     // 유동적으로 사용하기 위해 PathVariable 사용, 원래 uri에는 대문자를 사용하지 않지만 변수이기 때문에 대문자 사용함
@@ -27,8 +29,8 @@ public class UserRestController {
         return ResponseEntity.ok().body(user);
     }
 
-    @GetMapping("/users")
-    public ResponseEntity<?> getUser(@RequestParam String userId) {
+    @GetMapping("/users/{userId}")
+    public ResponseEntity<?> getUser(@PathVariable String userId) {
 
         User user = userRepository.findUserByUserId(userId);
 
@@ -38,10 +40,10 @@ public class UserRestController {
     @PostMapping("/user")
     public ResponseEntity<?> addUser(UserAddReqDto userAddReqDto) {
         int result = userRepository.save(userAddReqDto.toEntiny());
-        if(result != 0) {
+        if(result == 0) {
             return ResponseEntity.internalServerError().body("데이터 오류(Server)");
         }
 
-        return ResponseEntity.ok().body(null);
+        return ResponseEntity.ok().body("사용자 추가 완료");
     }
 }
