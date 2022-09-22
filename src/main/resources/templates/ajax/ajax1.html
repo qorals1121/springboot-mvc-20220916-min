@@ -30,7 +30,16 @@
                 dataType: "json",
                 success: (response) => {
                     console.log(response);
-                    const body = document.querySelector("body");
+                    appendData(response);
+                },
+                error: (error) => {
+                    console.log(error);
+                }
+            });
+        }
+
+        function appendData (response) {
+            const body = document.querySelector("body");
                     body.innerHTML = `
                         <h2>${response.code}</h2>
                         <h2>${response.msg}</h2>
@@ -38,11 +47,6 @@
                         <h2>${response.data.writer}</h2>
                         <h2>${response.data.content}</h2>
                     `;
-                },
-                error: (error) => {
-                    console.log(error);
-                }
-            });
         }
         
     </script>

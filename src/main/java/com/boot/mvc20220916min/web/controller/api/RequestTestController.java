@@ -72,6 +72,6 @@ public class RequestTestController {
     public ResponseEntity<?> deletePost(@PathVariable int id) {
         log.info("삭제할 게시글 번호 : ({})", id);
 
-        return ResponseEntity.ok(new CMRespDto<>(1, "메세지 전송 선공", deletePost(0)));
+        return ResponseEntity.ok(new CMRespDto<>(1, "메세지 전송 선공", id));
     }
 }

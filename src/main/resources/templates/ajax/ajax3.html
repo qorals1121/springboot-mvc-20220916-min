@@ -2,6 +2,8 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
@@ -21,7 +23,6 @@
             if(confirm("이미지 데이터 전송을 하시겠습니까?")) {
                 request();
             }
-            getFormData();
        }
 
        function getPreview() {
@@ -38,7 +39,7 @@
        function getFormData() {
             const form = document.querySelector("form");
 
-            const formData = new FormData();
+            const formData = new FormData(form);
 
             formData.append("title", "폼데이터 제목");
             formData.append("writer", "김준일");
@@ -55,7 +56,7 @@
             $.ajax({
                 async: false,
                 type: "post",
-                url: "/api/v1/dto/post",
+                url: "/api/v1/file/post",
                 enctype: "multipart/form-data",
                 contentType: false,
                 processData: false,
